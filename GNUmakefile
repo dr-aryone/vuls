@@ -35,6 +35,9 @@ depup:
 build: main.go dep pretest
 	go build -a -ldflags "$(LDFLAGS)" -o vuls $<
 
+nocgo: main.go dep pretest
+	CGO_ENABLED=0 go build -a -ldflags "$(LDFLAGS)" -o vuls $<
+
 b: 	main.go dep pretest
 	go build -ldflags "$(LDFLAGS)" -o vuls $<
 
